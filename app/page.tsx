@@ -1,6 +1,33 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import {
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+  FaInstagram,
+} from 'react-icons/fa';
+import {
+  SiVscodium,
+  SiFigma,
+  SiVercel,
+} from 'react-icons/si';
+import {
+  HiArrowUpRight,
+} from 'react-icons/hi2';
+import {
+  BsTerminalFill,
+} from 'react-icons/bs';
+import {
+  MdOutlineSchool,
+  MdOutlineComputer,
+  MdOutlineDesignServices,
+  MdOutlineDataObject,
+} from 'react-icons/md';
+import {
+  VscCode,
+} from 'react-icons/vsc';
+import { FiGitBranch } from 'react-icons/fi';
 
 const TICKER_ITEMS = [
   'WEB', 'PROGRAMMING', 'DEVELOPMENT', 'JAVASCRIPT', 'CSS', 'FIGMA', 'GIT', 'HTML',
@@ -11,48 +38,83 @@ const NAV_LINKS = ['About', 'Experience', 'Formation', 'Projects', 'Contact'];
 
 const EXPERIENCE = [
   {
-    date: 'Jan 2023 – Aug 2024',
-    title: 'Senior Frontend Developer',
-    company: 'TechCorp | Remote',
-    desc: 'Led the development of modern React applications, implemented design systems, and mentored junior developers. Reduced bundle size by 40% through code splitting and lazy loading strategies.',
+    date: 'Oct 2025 – Present',
+    title: 'Head & Frontend Instructor',
+    company: 'ConnectX | Egypt',
+    desc: 'Teaching and mentoring students in frontend development including HTML, CSS, JavaScript, and responsive design. Leading real-world projects and helping students build scalable applications.',
   },
   {
-    date: 'Jun 2022 – Dec 2022',
-    title: 'Frontend Developer',
-    company: 'StartupXYZ | Hybrid',
-    desc: 'Built responsive web interfaces using React and TypeScript. Collaborated closely with designers to translate Figma mockups into pixel-perfect components.',
-  },
-  {
-    date: 'Aug 2019 – Dec 2020',
-    title: 'Junior Web Developer',
-    company: 'AgencyPro | On-site',
-    desc: 'Developed landing pages and marketing websites for various clients using HTML, CSS, and vanilla JavaScript to create engaging user experiences.',
+    date: 'Jun 2025 – Jan 2026',
+    title: 'Frontend Developer Trainee',
+    company: 'Route Academy | Egypt',
+    desc: 'Built real-world responsive applications using React, Next.js, and TypeScript. Focused on clean architecture, reusable components, and API integration.',
   },
 ];
 
 const FORMATION = [
-  { title: 'UI / UX Design', platform: 'Origamid', hours: '17 hours', color: '#8b5cf6' },
-  { title: 'HTML & CSS', platform: 'Origamid', hours: '23 hours', color: '#f97316' },
-  { title: 'CSS Flexbox & Grid', platform: 'Origamid', hours: '8 hours', color: '#3b82f6' },
-  { title: 'JavaScript', platform: 'Origamid', hours: '37 hours', color: '#eab308' },
-  { title: 'Aprenda a Programar com JS, HTML e CSS', platform: 'Rodrigo Branas', hours: '12 hours', color: '#f97316' },
+  {
+    title: 'Bachelor of Computer Science',
+    platform: 'Ain Shams University',
+    hours: 'GPA: 3.5',
+    color: '#3b82f6',
+    Icon: MdOutlineSchool,
+  },
+  {
+    title: 'Frontend Development Diploma',
+    platform: 'Route Academy',
+    hours: '6 Months',
+    color: '#22c55e',
+    Icon: MdOutlineComputer,
+  },
+  {
+    title: 'React & Next.js Advanced Training',
+    platform: 'Self Learning + Projects',
+    hours: 'Hands-on',
+    color: '#8b5cf6',
+    Icon: VscCode,
+  },
+  {
+    title: 'UI/UX Design Fundamentals',
+    platform: 'Figma + Online Courses',
+    hours: '3 Months',
+    color: '#ec4899',
+    Icon: MdOutlineDesignServices,
+  },
+  {
+    title: 'Problem Solving & Data Structures',
+    platform: 'University + Practice',
+    hours: 'Ongoing',
+    color: '#f97316',
+    Icon: MdOutlineDataObject,
+  },
+  {
+    title: 'Version Control & Collaboration',
+    platform: 'Git & GitHub',
+    hours: 'Daily Use',
+    color: '#14b8a6',
+    Icon: FiGitBranch,
+  },
 ];
 
 const SOCIALS = [
-  { label: 'LinkedIn', icon: '💼', href: '#' },
-  { label: 'Instagram', icon: '📷', href: '#' },
-  { label: 'GitHub', icon: '🐙', href: '#' },
-  { label: 'E-mail', icon: '✉️', href: '#' },
+  { label: 'LinkedIn',  Icon: FaLinkedin,  href: 'https://www.linkedin.com/in/elsiny',                      color: '#0a66c2' },
+  { label: 'GitHub',    Icon: FaGithub,    href: 'https://github.com/muhammedkhaled0',                       color: '#e6edf3' },
+  { label: 'E-mail',    Icon: FaEnvelope,  href: 'mailto:muhammedkhaled7882@gmail.com',                      color: '#ea4335' },
+  { label: 'Instagram', Icon: FaInstagram, href: 'https://www.instagram.com/m.k_elsiny',                     color: '#e1306c' },
 ];
 
-// Application icons for the contact section (one per application)
+const projects = [
+  { title: 'Social App',  url: 'https://route-posts-opal.vercel.app/',              image: './social.png'    },
+  { title: 'E-Commerce',  url: 'https://e-commerce-five-iota-63.vercel.app/',        image: './ecommerce.png' },
+  { title: 'Weather App', url: 'https://muhammedkhaled0.github.io/Weather/',          image: './weather.png'   },
+];
+
 const APP_ICONS = [
-  { name: 'VS Code', icon: '💻', description: 'Code Editor' },
-  { name: 'Figma', icon: '🎨', description: 'Design Tool' },
-  { name: 'GitHub', icon: '🐙', description: 'Version Control' },
-  { name: 'Terminal', icon: '⌨️', description: 'Command Line' },
-  { name: 'Chrome', icon: '🌐', description: 'Browser' },
-  { name: 'Slack', icon: '💬', description: 'Communication' },
+  { name: 'VS Code',   Icon: SiVscodium,     description: 'Code Editor',      color: '#007acc' },
+  { name: 'Figma',     Icon: SiFigma,        description: 'Design Tool',      color: '#f24e1e' },
+  { name: 'GitHub',    Icon: FaGithub,       description: 'Version Control',  color: '#e6edf3' },
+  { name: 'Terminal',  Icon: BsTerminalFill, description: 'Command Line',     color: '#4fffb0' },
+  { name: 'Vercel',    Icon: SiVercel,       description: 'Deployment',       color: '#ffffff' },
 ];
 
 function useTypingEffect(words: string[], speed = 100, pause = 1800) {
@@ -105,6 +167,7 @@ export default function Home() {
 
   return (
     <main style={{ background: 'var(--bg)', minHeight: '100vh' }}>
+
       {/* NAVBAR */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
@@ -117,15 +180,9 @@ export default function Home() {
         <span style={{ fontFamily: "'Space Mono',monospace", fontWeight: 700, color: 'var(--text)', fontSize: '1.1rem' }}>
           Dev<span style={{ color: 'var(--accent)' }}>/</span>
         </span>
-        <div style={{ 
-          display: 'flex', 
-          gap: 'clamp(10px,2.5vw,32px)', 
-          alignItems: 'center', 
-          flexWrap: 'wrap',
-        }}>
+        <div style={{ display: 'flex', gap: 'clamp(10px,2.5vw,32px)', alignItems: 'center', flexWrap: 'wrap' }}>
           {NAV_LINKS.map(l => (
-            <a
-              key={l} href={`#${l.toLowerCase()}`}
+            <a key={l} href={`#${l.toLowerCase()}`}
               className={`nav-link${activeNav === l ? ' active' : ''}`}
               onClick={() => setActiveNav(l)}
             >{l}</a>
@@ -134,109 +191,58 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section style={{ paddingTop: '60px', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <section style={{
+        paddingTop: '80px', minHeight: '100vh',
+        display: 'flex', alignItems: 'center',
+        padding: 'clamp(40px,8vh,80px) clamp(16px,5vw,60px)',
+      }}>
         <div style={{
-          flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: 'clamp(40px,8vh,80px) clamp(16px,5vw,60px)',
-          gap: 'clamp(24px,5vw,60px)', flexWrap: 'wrap',
-          flexDirection: 'column',
-          textAlign: 'center',
+          display: 'flex', flexWrap: 'wrap', alignItems: 'center',
+          justifyContent: 'space-between', gap: '40px',
+          width: '100%', maxWidth: '1200px', margin: '0 auto',
         }}>
-          {/* Two side-by-side elements instead of emoji row */}
-          <div style={{
-            display: 'flex',
-            gap: 'clamp(30px,6vw,80px)',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: 'clamp(20px,5vh,40px)',
-            flexWrap: 'wrap',
-          }}>
-            {/* Element 1: Code Badge */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              background: 'rgba(79,255,176,0.1)',
-              padding: '12px 24px',
-              borderRadius: '40px',
-              border: '1px solid rgba(79,255,176,0.3)',
-              backdropFilter: 'blur(4px)',
-            }}>
-              <span style={{ fontSize: '1.8rem' }}>⚡</span>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '0.7rem', color: 'var(--accent)', fontFamily: "'Space Mono',monospace" }}>ACTIVE</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)' }}>Open for work</div>
-              </div>
-            </div>
-
-            {/* Element 2: Location Badge */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              background: 'rgba(79,255,176,0.05)',
-              padding: '12px 24px',
-              borderRadius: '40px',
-              border: '1px solid rgba(79,255,176,0.2)',
-            }}>
-              <span style={{ fontSize: '1.8rem' }}>🌍</span>
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '0.7rem', color: 'var(--accent2)', fontFamily: "'Space Mono',monospace" }}>LOCATION</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)' }}>Remote / Worldwide</div>
-              </div>
-            </div>
+          <div style={{ flex: 1, minWidth: '280px' }}>
+            <p style={{ color: 'var(--muted)', fontFamily: "'Space Mono'" }}>Hello, I'm</p>
+            <h1 style={{
+              fontSize: 'clamp(2.5rem,6vw,4rem)', fontWeight: 300, margin: '10px 0',
+              background: 'linear-gradient(90deg, var(--accent), var(--accent2))',
+              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+            }}>Muhammed Elsiny</h1>
+            <h2 style={{ color: 'var(--accent2)', fontFamily: "'Space Mono'", minHeight: '2em' }}>
+              {role} |
+            </h2>
+            <p style={{ marginTop: '20px', color: 'var(--muted)', lineHeight: 1.8, maxWidth: '500px' }}>
+              Frontend Developer specialized in building scalable web apps using React,
+              Next.js, and TypeScript. Currently Head &amp; Instructor at ConnectX.
+            </p>
           </div>
-
-          {/* Code box */}
-          <div style={{
-            border: '2px solid var(--accent)',
-            width: 'clamp(140px,18vw,200px)', height: 'clamp(140px,18vw,200px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            position: 'relative', flexShrink: 0,
-            background: 'rgba(79,255,176,0.03)',
-            animation: 'fadeUp 0.6s ease both',
-            margin: '0 auto',
-          }}>
-            <span style={{ fontFamily: "'Space Mono',monospace", fontSize: 'clamp(1.4rem,3vw,2.2rem)', color: 'var(--accent)', fontWeight: 700 }}>{'</>'}</span>
+          <div style={{ flex: 1, minWidth: '260px', display: 'flex', justifyContent: 'center' }}>
             <div style={{
-              position: 'absolute', bottom: '-22px', right: '-14px',
-              fontFamily: "'Space Mono',monospace", fontSize: '0.8rem',
-              color: 'var(--accent)', border: '1px solid var(--accent)',
-              padding: '2px 8px', background: 'var(--bg)',
-            }}>{'</>'}</div>
-          </div>
-          {/* Hero text */}
-          <div style={{ animation: 'fadeUp 0.8s ease 0.2s both' }}>
-            <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginBottom: '6px', fontFamily: "'Space Mono',monospace" }}>Hi, I'm</p>
-            <h1 style={{ fontWeight: 800, fontSize: 'clamp(2rem,6vw,3.8rem)', lineHeight: 1.05, marginBottom: '10px' }}>
-              Dev<span style={{ color: 'var(--accent)' }}>.</span>
-            </h1>
-            <div style={{
-              fontSize: 'clamp(1rem,3vw,1.6rem)', color: 'var(--accent2)',
-              fontWeight: 700, fontFamily: "'Space Mono',monospace",
-              minHeight: '2em', display: 'flex', alignItems: 'center',
-              justifyContent: 'center',
+              border: '2px solid var(--accent)', width: '220px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: "'Space Mono'", fontSize: '2rem', color: 'var(--accent)',
+              position: 'relative', background: 'rgba(79,255,176,0.05)',
             }}>
-              {role}<span className="cursor" style={{ color: 'var(--accent)', marginLeft: '2px' }}>|</span>
+              <img className="w-full" src="/myImg.jpg" alt="Profile Image" />
             </div>
-          </div>
-        </div>
-
-        {/* TICKER */}
-        <div style={{ background: 'var(--accent)', overflow: 'hidden', padding: '13px 0', flexShrink: 0 }}>
-          <div className="ticker-track">
-            {doubled.map((item, i) => (
-              <span key={i} style={{
-                fontFamily: "'Space Mono',monospace", fontWeight: 700,
-                fontSize: '0.82rem', color: 'var(--bg)',
-                padding: '0 20px', whiteSpace: 'nowrap',
-              }}>
-                {item}<span style={{ marginLeft: '20px', opacity: 0.3 }}>/</span>
-              </span>
-            ))}
           </div>
         </div>
       </section>
+
+      {/* TICKER */}
+      <div style={{ background: 'var(--accent)', overflow: 'hidden', padding: '13px 0', flexShrink: 0 }}>
+        <div className="ticker-track">
+          {doubled.map((item, i) => (
+            <span key={i} style={{
+              fontFamily: "'Space Mono',monospace", fontWeight: 700,
+              fontSize: '0.82rem', color: 'var(--bg)',
+              padding: '0 20px', whiteSpace: 'nowrap',
+            }}>
+              {item}<span style={{ marginLeft: '20px', opacity: 0.3 }}>/</span>
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* ABOUT */}
       <section id="about" style={{ padding: 'clamp(60px,10vh,100px) clamp(16px,5vw,60px)' }}>
@@ -292,7 +298,7 @@ export default function Home() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
                 <h3 style={{ fontWeight: 700, fontSize: '1rem' }}>{exp.title}</h3>
                 <span style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>| {exp.company}</span>
-                <span style={{ color: 'var(--accent)', fontSize: '0.85rem' }}>↗</span>
+                <HiArrowUpRight style={{ color: 'var(--accent)', fontSize: '1rem' }} />
               </div>
               <p style={{ color: 'var(--muted)', lineHeight: 1.7, fontSize: '0.88rem' }}>{exp.desc}</p>
             </div>
@@ -315,8 +321,9 @@ export default function Home() {
                 width: '38px', height: '38px', borderRadius: '8px',
                 background: f.color, flexShrink: 0, opacity: 0.9,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1rem',
-              }}>📚</div>
+              }}>
+                <f.Icon size={20} color="#fff" />
+              </div>
               <span style={{ flex: 1, fontWeight: 600, color: 'var(--text)', fontSize: '0.92rem' }}>{f.title}</span>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>{f.platform}</div>
@@ -327,126 +334,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS - with 3 iframes */}
+      {/* PROJECTS */}
       <section id="projects" style={{ padding: 'clamp(60px,10vh,100px) clamp(16px,5vw,60px)', background: 'var(--bg2)' }}>
         <h2 className="section-title" style={{ marginBottom: 'clamp(36px,6vh,64px)', textAlign: 'center' }}>
           Projects<span style={{ color: 'var(--accent2)' }}>.</span>
         </h2>
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: 'clamp(20px, 3vw, 30px)',
-          maxWidth: '1200px',
-          margin: '0 auto',
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '30px', maxWidth: '1200px', margin: '0 auto',
         }}>
-          {/* Iframe 1 */}
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            paddingBottom: '56.25%', // 16:9 aspect ratio
-            height: 0,
-            overflow: 'hidden',
-            borderRadius: '12px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-8px)';
-            e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
-          }}>
-            <iframe
-              src="https://route-posts-opal.vercel.app/"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                borderRadius: '12px',
+          {projects.map((p, i) => (
+            <div key={i} onClick={() => window.open(p.url, '_blank')} style={{
+              cursor: 'pointer', borderRadius: '16px', overflow: 'hidden',
+              position: 'relative', height: '280px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.2)', transition: '0.3s',
+            }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
+                e.currentTarget.style.boxShadow = '0 10px 40px rgba(0,0,0,0.4)';
+                const overlay = e.currentTarget.querySelector('.overlay') as HTMLElement;
+                if (overlay) overlay.style.opacity = '1';
               }}
-              title="Project 1"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Iframe 2 */}
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            paddingBottom: '56.25%',
-            height: 0,
-            overflow: 'hidden',
-            borderRadius: '12px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-8px)';
-            e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
-          }}>
-            <iframe
-              src="https://e-commerce-five-iota-63.vercel.app/"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                borderRadius: '12px',
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'none';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+                const overlay = e.currentTarget.querySelector('.overlay') as HTMLElement;
+                if (overlay) overlay.style.opacity = '0';
               }}
-              title="Project 2"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Iframe 3 */}
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            paddingBottom: '56.25%',
-            height: 0,
-            overflow: 'hidden',
-            borderRadius: '12px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-8px)';
-            e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
-          }}>
-            <iframe
-              src="https://muhammedkhaled0.github.io/Weather/"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                borderRadius: '12px',
-              }}
-              title="Project 3"
-              loading="lazy"
-            />
-          </div>
+            >
+              <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="overlay" style={{
+                position: 'absolute', inset: 0,
+                background: 'rgba(0,0,0,0.5)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                opacity: 0, transition: '0.3s',
+              }}>
+                <h3 style={{ color: '#fff' }}>{p.title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* CONTACT - Now with Application Icons section */}
+      {/* CONTACT */}
       <section id="contact" style={{ padding: 'clamp(60px,10vh,100px) clamp(16px,5vw,60px)' }}>
         <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
           Contact<span>.</span>
@@ -454,70 +384,56 @@ export default function Home() {
         <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '40px' }}>
           Contact me or follow my social media
         </p>
-        
+
         {/* Social Links */}
         <div style={{
           display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))',
           gap: '12px', maxWidth: '560px', margin: '0 auto 48px auto',
         }}>
           {SOCIALS.map((s, i) => (
-            <a key={i} href={s.href} className="social-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <a key={i} href={s.href} className="social-card" style={{ textDecoration: 'none', color: 'inherit' }} target="_blank" rel="noopener noreferrer">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '1rem' }}>{s.icon}</span>
+                <s.Icon size={18} color={s.color} />
                 <span style={{ fontSize: '0.88rem', fontWeight: 600 }}>{s.label}</span>
               </div>
-              <span style={{ color: 'var(--accent)' }}>↗</span>
+              <HiArrowUpRight style={{ color: 'var(--accent)' }} />
             </a>
           ))}
         </div>
 
-        {/* Application Icons Section */}
+        {/* App Icons */}
         <div style={{ marginTop: '48px' }}>
-          <h3 style={{ 
-            textAlign: 'center', 
-            fontSize: '1.2rem', 
-            marginBottom: '28px',
-            color: 'var(--accent2)',
-            fontFamily: "'Space Mono', monospace"
+          <h3 style={{
+            textAlign: 'center', fontSize: '1.2rem', marginBottom: '28px',
+            color: 'var(--accent2)', fontFamily: "'Space Mono', monospace",
           }}>
-            Apps & Tools I Use
+            Apps &amp; Tools I Use
           </h3>
           <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: 'clamp(20px, 4vw, 40px)',
-            maxWidth: '700px',
-            margin: '0 auto',
+            display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
+            gap: 'clamp(20px, 4vw, 40px)', maxWidth: '700px', margin: '0 auto',
           }}>
             {APP_ICONS.map((app, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 18px',
-                  background: 'rgba(79,255,176,0.05)',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(79,255,176,0.15)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'default',
-                  minWidth: '90px',
-                }}
-                onMouseEnter={(e) => {
+              <div key={idx} style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
+                padding: '12px 18px',
+                background: 'rgba(79,255,176,0.05)',
+                borderRadius: '16px',
+                border: '1px solid rgba(79,255,176,0.15)',
+                transition: 'all 0.3s ease', cursor: 'default', minWidth: '90px',
+              }}
+                onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
                   e.currentTarget.style.borderColor = 'rgba(79,255,176,0.4)';
                   e.currentTarget.style.background = 'rgba(79,255,176,0.1)';
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.borderColor = 'rgba(79,255,176,0.15)';
                   e.currentTarget.style.background = 'rgba(79,255,176,0.05)';
                 }}
               >
-                <span style={{ fontSize: '2rem' }}>{app.icon}</span>
+                <app.Icon size={32} color={app.color} />
                 <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text)' }}>{app.name}</span>
                 <span style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>{app.description}</span>
               </div>
@@ -537,22 +453,12 @@ export default function Home() {
       </footer>
 
       <style jsx>{`
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        
         @media (max-width: 768px) {
-          .nav-link {
-            font-size: 0.85rem;
-          }
+          .nav-link { font-size: 0.85rem; }
         }
-        
         @media (max-width: 480px) {
           .nav-link[href="#contact"],
-          .nav-link[href="#formation"] {
-            display: none;
-          }
+          .nav-link[href="#formation"] { display: none; }
         }
       `}</style>
     </main>
