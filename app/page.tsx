@@ -408,18 +408,18 @@ function usePageMotion(setActiveSection: (sectionId: string) => void) {
       revealNodes.forEach((node) => revealObserver.observe(node));
     }
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible) {
-          setActiveSection(visible.target.id);
-        }
-      },
-      { threshold: [0.2, 0.4, 0.65], rootMargin: '-42% 0px -42% 0px' },
-    );
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveSection(entry.target.id);
+      }
+    });
+  },
+  {
+    threshold: 0.6, // مهم جدًا
+  }
+);
 
     sections.forEach((section) => sectionObserver.observe(section));
 
@@ -739,7 +739,7 @@ export default function Home() {
             {EXPERIENCE.map((item, index) => (
               <article
                 key={item.title}
-                className="
+                className="timeline-item
                 panel"
                 data-reveal
                 style={{ transitionDelay: `${index * 0.1}s` }}
