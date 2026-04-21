@@ -417,7 +417,7 @@ const sectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.6, // مهم جدًا
+    threshold: 0.6,
   }
 );
 

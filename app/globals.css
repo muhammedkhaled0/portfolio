@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
 }
@@ -90,7 +91,7 @@
           top: 14px;
           left: 50%;
           transform: translateX(-50%);
-          width: min(1180px, calc(100% - 24px));
+          width: min(1180px, calc(100% - 48px));
           z-index: 10;
           display: flex;
           align-items: center;
@@ -105,13 +106,18 @@
         }
 
         .brand {
-          font-size: 1.5rem;
           font-weight: 700;
           letter-spacing: 0.08em;
           text-decoration: none;
           text-transform: uppercase;
           white-space: nowrap;
             color: var(--accent-2);
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width:1000px){
+          .brand{
+            font-size:1rem;
+          }
         }
 
         .brand span {
