@@ -1,6 +1,6 @@
 *{
   margin: 0;
-  color: white;
+  /* color: white; */
 }
 .page-shell {
           --bg: #071119;
@@ -203,6 +203,7 @@
           line-height: 0.98;
           letter-spacing: -0.05em;
           max-width: 9ch;
+          color: white;
         }
 
         .hero-role {
@@ -579,6 +580,7 @@
           font-size: clamp(2rem, 4vw, 3.4rem);
           line-height: 1.08;
           letter-spacing: -0.04em;
+          color: white;
         }
 
         .about-grid,
@@ -612,6 +614,7 @@
 
         .about-card,
         .service-card {
+          color: var(--accent-2);;
           padding: 26px;
         }
 
@@ -661,6 +664,7 @@
 
         .stat-card {
           padding: 24px;
+          color: var(--accent-2);;
         }
 
         .stat-icon {
@@ -715,6 +719,7 @@
           align-items: center;
           gap: 14px;
           transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+                      color: var(--accent-2);
         }
 
         .stack-card:hover {
@@ -743,6 +748,7 @@
           position: relative;
           padding: 28px 28px 28px 48px;
           overflow: hidden;
+          color: var(--accent-2);
         }
 
         .timeline-line {
@@ -783,6 +789,7 @@
           grid-template-columns: auto 1fr auto;
           align-items: center;
           gap: 16px;
+          color: var(--accent-2);
         }
 
         .formation-icon {
@@ -819,6 +826,7 @@
           text-decoration: none;
           overflow: hidden;
           transition: transform 0.32s ease, box-shadow 0.32s ease;
+          color: var(--accent-2);
         }
 
         .project-card::after {
@@ -907,6 +915,7 @@
           justify-content: space-between;
           text-decoration: none;
           transition: transform 0.28s ease, background 0.28s ease;
+          color: var(--accent-2);
         }
 
         .social-card:hover {
@@ -932,9 +941,13 @@
           grid-template-columns: repeat(5, minmax(0, 1fr));
           gap: 14px;
           margin-top: 22px;
+          
         }
-
+        .tools-head{
+          color: white;
+        }
         .tool-card {
+          color: var(--accent-2);
           min-height: 124px;
           border-radius: 22px;
           border: 1px solid rgba(255, 255, 255, 0.08);

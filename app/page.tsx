@@ -660,7 +660,7 @@ export default function Home() {
             <h2 className="section-title">More sections, but each one earns its place.</h2>
           </div>
 
-          <div className="stats-grid">
+          <div className="stats-grid ">
             {STATS.map(({ value, label, helper, Icon }, index) => (
               <div
                 key={label}
@@ -739,7 +739,8 @@ export default function Home() {
             {EXPERIENCE.map((item, index) => (
               <article
                 key={item.title}
-                className="timeline-item panel"
+                className="
+                panel"
                 data-reveal
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
@@ -871,7 +872,7 @@ export default function Home() {
               </div>
 
               <div className="tools-panel panel" data-reveal>
-                <h3>Apps &amp; Tools I Use</h3>
+                <h3 className='tools-head'>Apps &amp; Tools I Use</h3>
                 <div className="tools-grid">
                   {APP_ICONS.map(({ name, description, color, Icon }) => (
                     <div key={name} className="tool-card">
