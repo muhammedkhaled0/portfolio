@@ -2,6 +2,9 @@
 *{
   margin: 0;
 }
+html{
+  scroll-behavior: smooth;
+}
 .page-shell {
           --bg: #071119;
           --bg-2: #0c1622;
