@@ -121,9 +121,10 @@ html{
           .brand{
             font-size:1rem;
           }
-          .hero-section{
-            padding-inline: 10px;
+          .hero-section,.section-block{
+            padding-inline: 10px !important;
           }
+          
         }
 
         .brand span {

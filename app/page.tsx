@@ -401,7 +401,7 @@ function usePageMotion(setActiveSection: (sectionId: string) => void) {
           }
         });
       },
-      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.07, rootMargin: '-30% 0px -50% 0px' },
     );
 
     if (!reduceMotion) {
@@ -417,7 +417,7 @@ const sectionObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.6,
+    threshold: 0.25
   }
 );
 
