@@ -392,17 +392,20 @@ function usePageMotion(setActiveSection: (sectionId: string) => void) {
         node.dataset.visible = 'true';
       });
     }
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting || reduceMotion) {
-            entry.target.setAttribute('data-visible', 'true');
-          }
-        });
-      },
-      { threshold: 0.07, rootMargin: '-30% 0px -50% 0px' },
-    );
+  
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting || reduceMotion) {
+        entry.target.setAttribute('data-visible', 'true');
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+    rootMargin: '0px 0px -10% 0px',
+  }
+);
 
     if (!reduceMotion) {
       revealNodes.forEach((node) => revealObserver.observe(node));
